@@ -26,6 +26,7 @@ export default class Cliente {
         this.servicosConsumidos = []
         this.pets = []
     }
+    /*getters*/
     public get getCpf(): CPF {
         return this.cpf
     }
@@ -47,4 +48,22 @@ export default class Cliente {
     public get getPets(): Array<Pet>{
         return this.pets
     }
+/*_____________________________________________________________________*/
+/*SETTERS*/
+    public set setDataCpf(dataEmissao: Date){
+        this.cpf.setDataEmissao = dataEmissao
+    }
+    public set setValorCpf(valor: string){
+        this.cpf.setValor = valor
+    }
+    public alterarRgs (novoRg): void {
+        this.rgs.push(novoRg)
+    }
+    public set setNome(novoNome: string) {
+        this.nome = novoNome;
+    }
+    public set setNomeSocial(nomeSocial : string){
+        this.nomeSocial = nomeSocial
+    }
+    
 }
