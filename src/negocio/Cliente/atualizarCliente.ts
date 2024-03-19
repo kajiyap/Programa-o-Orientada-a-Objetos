@@ -1,7 +1,7 @@
-import Entrada from "../io/entrada";
-import Cliente from "../modelo/cliente";
-import CPF from "../modelo/cpf";
-import Atualizar from "./atualizar";
+import Entrada from "../../io/entrada";
+import Cliente from "../../modelo/cliente";
+import CPF from "../../modelo/cpf";
+import Atualizar from "../atualizar";
 
 export default class AtualizarCliente extends Atualizar{
     private clientes: Array<Cliente>
@@ -15,7 +15,8 @@ export default class AtualizarCliente extends Atualizar{
     public atualizar(): void {
         console.log(`\nInicio de atualização de cadastro dos clientes`);
         console.log(`\nO que não precisar ser altrerado, poderá ser deixado em branco`);
-        let nomeMudar = this.entrada.receberTexto('Por favor informe o nome do cliente que alterará os dados:')
+        /*Alterando dados do cliente (nome, nome social, cpf)*/ 
+        let CPFMudar = this.entrada.receberTexto('Por favor informe o CPF do cliente que alterará os dados:')
         let novoNome = this.entrada.receberTexto('Informe o novo nome:')
         let novoNomeSocial = this.entrada.receberTexto("Informe o novo nome social:")
         let novoValor = this.entrada.receberTexto("Informe o novo número de CPF:")
@@ -25,8 +26,9 @@ export default class AtualizarCliente extends Atualizar{
         let mes = new Number(partesData[1].valueOf()).valueOf()
         let dia = new Number(partesData[0].valueOf()).valueOf()
         let novaDataEmissao = new Date(ano, mes, dia)
-        for(var i=0; i<this.clientes.length; i++){
-            if(this.clientes[i].nome === nomeMudar){
+
+        for(var i=0; i<=this.clientes.length; i++){
+            if(this.clientes[i].nome === CPFMudar){
                 if(novoNome != null){
                     this.clientes[i].setNome = novoNome
                 }
