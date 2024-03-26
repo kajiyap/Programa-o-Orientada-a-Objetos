@@ -23,7 +23,7 @@ export default class CadastroPet extends Cadastro{
 
         let cliente;
         while (cliente === undefined){
-            let cpf = this.entrada.receberTexto('Digite o CPF de quem perntence o número: ')
+            let cpf = this.entrada.receberTexto('Digite o CPF de quem perntence o Pet: ')
             cliente = this.clientes.find(e => e.getCpf.getValor === cpf)
 
             if (!cliente) {console.log(`CPF não encontrado, tente novamente.`)}

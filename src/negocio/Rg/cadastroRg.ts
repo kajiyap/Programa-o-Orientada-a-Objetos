@@ -39,6 +39,6 @@ export default class CadastroRg extends Cadastro{
 
         let rg = new RG (valorRg, dataEmissaoRG)
         cliente.getTelefones.push(rg)
-        console.log(`\nCadastro de telefone concluído.`)   
+        console.log(`\nCadastro de RG concluído.`)   
     }
 }

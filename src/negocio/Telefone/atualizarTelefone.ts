@@ -18,7 +18,8 @@ export default class AtualizarTelefone extends Atualizar{
         }
         console.log('\nInicio de atualização de telefone: ')
         let cpf = this.entrada.receberTexto('Informe o CPF do dono do número de telefone: ')
-        for (let i = 0; i<=this.clientes.length; i++){
+        
+        for (let i = 0; i<=this.clientes.length-1; i++){
             if (this.clientes[i].getCpf.getValor == cpf){
                 let num = this.entrada.receberTexto('Informe o número que deseja mudar (sem DDD): ')
                 for (let a = 0; a<this.clientes[i].getTelefones.length; a++){

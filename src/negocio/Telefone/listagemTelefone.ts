@@ -12,10 +12,18 @@ export default class ListagemTelefone extends Listagem{
     }
 
     public listar(): void {
-        let cpf = this.entrada.receberTexto('Digite o CPF do cliente de que deseja o número: ')
-        for (var i=0; i<= this.clientes.length; i++){
-            if (cpf == this.clientes[i].getCpf.getValor){
-                console.log(`números de telefone ${this.clientes[i].getTelefones}`)
+        let cpf = this.entrada.receberTexto('\nDigite o CPF do cliente de que deseja o número: ')
+        
+        for (var i=0; i<= this.clientes.length-1; i++){
+            if (cpf === this.clientes[i].getCpf.getValor){
+                console.log(`\nLista de telefones do cliente: ${this.clientes[i].nome}`)
+                this.clientes[i].getTelefones.forEach(telefone =>{
+                    console.log(`DDD: ${telefone.getDdd}`)
+                    console.log(`DDD: ${telefone.getNumero}`)
+                    console.log('---------------------------------------------------')
+                }
+
+                )
             }
         }
     }

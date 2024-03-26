@@ -23,7 +23,7 @@ export default class DeletarCliente extends Deletar{
         let confirmacao = this.entrada.receberNumero(`Você tem certeza que deseja excluir esses dados(1-Sim ou 0-Não)?`)
         
         if(confirmacao === 1){
-            for (var i=0; i<=this.clientes.length; i++){
+            for (var i=0; i<=this.clientes.length-1; i++){
                 if (this.clientes[i].getCpf.getValor == CPFdelet){
                     this.clientes.splice(i, 1)
                     }
