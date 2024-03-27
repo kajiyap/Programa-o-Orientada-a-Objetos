@@ -16,33 +16,35 @@ export default class AtualizarCliente extends Atualizar{
         console.log(`\nO que não precisar ser altrerado, poderá ser deixado em branco`);
 
         /*Alterando dados do cliente (nome, nome social, cpf)*/ 
-        let CPFMudar = this.entrada.receberTexto('Por favor informe o CPF do cliente que alterará os dados:')
+        let cliente;
+        while (cliente === undefined){
+            let cpf = this.entrada.receberTexto('Digite o CPF de quem você deseja alterar os dados: ')
+            cliente = this.clientes.find(e => e.getCpf.getValor === cpf)
 
-        for(var i=0; i<=this.clientes.length-1; i++){
-            if(this.clientes[i].getCpf.getValor === CPFMudar){
-                let novoNome = this.entrada.receberTexto('Informe o novo nome:')
-                let novoNomeSocial = this.entrada.receberTexto("Informe o novo nome social:")
-                let novoValor = this.entrada.receberTexto("Informe o novo número de CPF:")
-                let novaData = this.entrada.receberTexto('Informe a nova data de emissão do CPF, no padrão dd/mm/yyyy:')
-                let partesData = novaData.split('/')
-                let ano = new Number(partesData[2].valueOf()).valueOf()
-                let mes = new Number(partesData[1].valueOf()).valueOf()
-                let dia = new Number(partesData[0].valueOf()).valueOf()
-                let novaDataEmissao = new Date(ano, mes, dia)
-                if(novoNome != null){
-                    this.clientes[i].setNome = novoNome
-                }
-                if (novaDataEmissao != null){
-                    this.clientes[i].setDataCpf = novaDataEmissao
-                }
-                if (novoValor != null){
-                    this.clientes[i].setValorCpf = novoValor
-                }
-                if (novoNomeSocial != null){
-                    this.clientes[i].setNomeSocial = novoNomeSocial
-                } 
-            }
+            if (!cliente) {console.log(`CPF não encontrado, tente novamente.`)}
         }
+
+        let novoNome = this.entrada.receberTexto('Informe o novo nome:')
+        let novoNomeSocial = this.entrada.receberTexto("Informe o novo nome social:")
+        let novoValor = this.entrada.receberTexto("Informe o novo número de CPF:")
+        let novaData = this.entrada.receberTexto('Informe a nova data de emissão do CPF, no padrão dd/mm/yyyy:')
+        if(novaData!= null){
+            let partesData = novaData.split('/')
+            let ano = new Number(partesData[2].valueOf()).valueOf()
+            let mes = new Number(partesData[1].valueOf()).valueOf()
+            let dia = new Number(partesData[0].valueOf()).valueOf()
+            var novaDataEmissao = new Date(ano, mes, dia)
+            cliente.setDataCpf = novaDataEmissao
+        }
+        if(novoNome != null){
+            cliente.setNome = novoNome
+        }
+        if (novoValor != null){
+            cliente.setValorCpf = novoValor
+        }
+        if (novoNomeSocial != null){
+            cliente.setNomeSocial = novoNomeSocial
+        } 
     }
     
 }

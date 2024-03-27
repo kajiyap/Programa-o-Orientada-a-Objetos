@@ -1,6 +1,6 @@
 import CPF from "../../modelo/cpf";
 
-function gerarCPF (){
+export function gerarCPF (){
     let min = Math.ceil(10000000000)
     let max = Math.floor(100000000000)
     return Math.floor(Math.random()*(max-min)+min)

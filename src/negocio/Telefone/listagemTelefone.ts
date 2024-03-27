@@ -12,7 +12,7 @@ export default class ListagemTelefone extends Listagem{
     }
 
     public listar(): void {
-        let cpf = this.entrada.receberTexto('\nDigite o CPF do cliente de que deseja o número: ')
+        let cpf = this.entrada.receberTexto('Digite o CPF do cliente de que deseja o número: ')
         
         for (var i=0; i<= this.clientes.length-1; i++){
             if (cpf === this.clientes[i].getCpf.getValor){

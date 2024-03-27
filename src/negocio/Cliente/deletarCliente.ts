@@ -26,6 +26,7 @@ export default class DeletarCliente extends Deletar{
             for (var i=0; i<=this.clientes.length-1; i++){
                 if (this.clientes[i].getCpf.getValor == CPFdelet){
                     this.clientes.splice(i, 1)
+                    console.log('Exclusão concluída com sucesso!')
                     }
                 }
             }

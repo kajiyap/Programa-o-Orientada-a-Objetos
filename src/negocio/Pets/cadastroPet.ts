@@ -18,9 +18,6 @@ export default class CadastroPet extends Cadastro{
             console.log('Sem clientes cadastrado, cadastre um cliente primeiro.')
             return
         }
-
-        console.log(`\nInicio de cadastro de Pet`)
-
         let cliente;
         while (cliente === undefined){
             let cpf = this.entrada.receberTexto('Digite o CPF de quem perntence o Pet: ')
@@ -28,11 +25,12 @@ export default class CadastroPet extends Cadastro{
 
             if (!cliente) {console.log(`CPF não encontrado, tente novamente.`)}
         }
+        console.log(`\nInicio de cadastro de Pet`)
 
         let nomePet = this.entrada.receberTexto(`Informe o nome do seu pet: `)
+        let tipoPet = this.entrada.receberTexto(`Informe o tipo do seu pet: `)
         let racaPet = this.entrada.receberTexto(`Informe o raça do seu pet: `)
         let generoPet = this.entrada.receberTexto(`Informe o gênero do seu pet: `)
-        let tipoPet = this.entrada.receberTexto(`Informe o tipo do seu pet: `)
         let pet = new Pet(nomePet, racaPet, generoPet, tipoPet)
         cliente.getPets.push(pet)
 

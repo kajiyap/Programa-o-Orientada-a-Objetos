@@ -25,13 +25,20 @@ export default class DeletarTelefone extends Deletar{
 
             let confirmacao = this.entrada.receberNumero(`Você tem certeza que deseja excluir esses dados(1-Sim ou 0-Não)?`)
         
+            
             if(confirmacao === 1){
                 for (var i=0; i<=this.clientes.length-1; i++){
                     if (this.clientes[i].getCpf.getValor == cpf){
-                        for (let c=0; c<=this.clientes[i].getTelefones.length; c++ ){
-                            if (num === this.clientes[i].getTelefones[c].getNumero){
-                                this.clientes[i].getTelefones.splice(c, 1)
-                            }
+                        if(this.clientes[i].getTelefones.length === 0){
+                            console.log('Não há telefones cadastrados')
+                        }
+                        else{
+                            for (let c=0; c<=this.clientes[i].getTelefones.length; c++ ){
+                                if (num === this.clientes[i].getTelefones[c].getNumero){
+                                    this.clientes[i].getTelefones.splice(c, 1)
+                                }
+                        }
+                        
                         }
                     }
                 }

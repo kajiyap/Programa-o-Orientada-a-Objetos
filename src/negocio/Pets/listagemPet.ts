@@ -12,6 +12,7 @@ export default class ListagemPets extends Listagem{
     }
 
     public listar(): void {
+        
         let cliente;
         while (cliente === undefined){
             let cpf = this.entrada.receberTexto('Digite o CPF de quem você quer listar os pets: ')
@@ -19,14 +20,20 @@ export default class ListagemPets extends Listagem{
 
             if (!cliente) {console.log(`CPF não encontrado, tente novamente.`)}
         }
-        console.log(`\nLista de todos os pets do cliente ${cliente.nome}`)
-        cliente.getPets.forEach(pet =>{
+        if(cliente.getPets.length === 0){
+            console.log('Não há pets cadastrados')
+        }
+        else{
+            console.log(`\nLista de todos os pets do cliente ${cliente.nome}`)
+            cliente.getPets.forEach(pet =>{
+            console.log(`Nome: ${pet.getNome}`)
             console.log(`Tipo: ${pet.getTipo}`)
             console.log(`Raça: ${pet.getRaca}`)
             console.log(`Genero: ${pet.getGenero}`)
-            console.log(`Nome: ${pet.getNome}`)
             console.log('\n-----------------------------------------')
-        }
+            }
         )
+        }
+        
     }
 }
