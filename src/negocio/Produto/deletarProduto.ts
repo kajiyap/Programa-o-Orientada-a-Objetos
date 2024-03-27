@@ -9,7 +9,7 @@ export default class DeletarProduto extends Deletar{
     constructor(produtos: Array<ProdutoServico>){
         super()
         this.produtos = produtos
-        this.entrada = new Entrada
+        this.entrada = new Entrada()
     }
 
     public deletar(): void {
@@ -29,6 +29,9 @@ export default class DeletarProduto extends Deletar{
                         console.log('Exclusão concluída com sucesso!')
                     }
                 }
+            }
+            else{
+                console.log('Encerrando')
             }
         }
     }

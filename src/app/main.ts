@@ -1,6 +1,4 @@
 import Entrada from "../io/entrada";
-import Cliente from "../modelo/cliente";
-import Empresa from "../modelo/empresa";
 import AtualizarCliente from "../negocio/Cliente/atualizarCliente";
 import CadastroCliente from "../negocio/Cliente/cadastroCliente";
 import CadastroPet from "../negocio/Pets/cadastroPet";
@@ -10,9 +8,6 @@ import CadastroTelefone from "../negocio/Telefone/cadastroTelefone";
 import ListagemClientes from "../negocio/Cliente/listagemClientes";
 import DeletarCliente from "../negocio/Cliente/deletarCliente";
 import ListagemTelefone from "../negocio/Telefone/listagemTelefone";
-import CPF from "../modelo/cpf";
-import criacaoCPF from "../negocio/CriacaoAuto/criacaoCPF";
-import criaNome from "../negocio/CriacaoAuto/criacaoNome";
 import AtualizarTelefone from "../negocio/Telefone/atualizarTelefone";
 import DeletarTelefone from "../negocio/Telefone/deletarTelefone";
 import DeletarRG from "../negocio/Rg/deletarRg";
@@ -23,6 +18,9 @@ import criaEmpresa from "../negocio/CriacaoAuto/criaEmpresa";
 import ListagemProdutos from "../negocio/Produto/listagemProdutos";
 import AtualizarProduto from "../negocio/Produto/atualizarProduto";
 import DeletarProduto from "../negocio/Produto/deletarProduto";
+import CadastroServico from "../negocio/Servicos/cadastroServicos";
+import DeletaServico from "../negocio/Servicos/deletaServico";
+import Consumidos from "../negocio/Consumidos/Consumidos";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = criaEmpresa()
@@ -34,7 +32,9 @@ while (execucao) {
     console.log(`2 - Telefones`)
     console.log(`3 - RGs`)
     console.log(`4 - Pets`)
-    console.log(`5 - Produtos ou serviços`)
+    console.log(`5 - Produtos`)
+    console.log(`6 - Serviços`)
+    console.log(`7 - Cadastrar Compras`)
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -152,11 +152,11 @@ while (execucao) {
             }
             break
         case 5:
-            console.log('\nOque deseja com os produtos ou serviços?')
-            console.log('1 - Cadastrar produtos ou serviços')
-            console.log('2 - Listar produtos ou serviços')
-            console.log('3 - Atualizar produtos ou serviços')
-            console.log('4 - Deletar produtos ou serviços')
+            console.log('\nOque deseja com os produtos?')
+            console.log('1 - Cadastrar produtos')
+            console.log('2 - Listar produtos')
+            console.log('3 - Atualizar produtos')
+            console.log('4 - Deletar produtos')
             console.log('0 - Voltar')
 
             let sextaOpcao = entrada.receberNumero('Escolha uma opção: ')
@@ -180,7 +180,41 @@ while (execucao) {
                 case 0:
                     break;
             }
-            
+            break
+        case 6:
+            console.log('\nOque deseja com os servicos?')
+            console.log('1 - Cadastrar servicos')
+            console.log('2 - Listar servicos')
+            console.log('3 - Atualizar servicos')
+            console.log('4 - Deletar servicos')
+            console.log('0 - Voltar')
+
+            let setmaEscolha = entrada.receberNumero('Escolha uma opção: ')
+            switch(setmaEscolha){
+                case 1:
+                    let cadastroServico = new CadastroServico(empresa.getServicos)
+                    cadastroServico.cadastrar()
+                    break;
+                case 2:
+                    let listagemProduto = new ListagemProdutos(empresa.getProdutos)
+                    listagemProduto.listar()
+                    break;
+                case 3:
+                    let atualizarProduto = new AtualizarProduto(empresa.getProdutos)
+                    atualizarProduto.atualizar()
+                    break;
+                case 4:
+                    let deletaServico = new DeletaServico(empresa.getServicos)
+                    deletaServico.deletar()
+                    break;
+                case 0:
+                    break;
+            }
+            break;
+        case 7:
+            let compra = new Consumidos(empresa.getProdutos, empresa.getServicos, empresa.getClientes)
+            compra.consumir()
+            break;
         case 0:
             execucao = false
             console.log(`Até mais`)

@@ -1,4 +1,4 @@
-export default class ProdutoServico {
+export default class Produto {
     private nome: string
     private preco: number
     private codigo: string
