@@ -19,10 +19,7 @@ export default class CadastroServico extends Cadastro{
         let preco = this.entrada.receberNumero('Informe o preço do serviço: ')
         let codigo = this.entrada.receberTexto('Informe o codigo do serviço: ')
 
-        let servico = new Servico
-        servico.codigo = codigo
-        servico.nome = nome
-        servico.preco = preco
+        let servico = new Servico(nome, preco, codigo)
 
         this.servicos.push(servico)
     }

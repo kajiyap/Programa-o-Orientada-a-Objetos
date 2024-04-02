@@ -1,5 +1,4 @@
 import Entrada from "../../io/entrada";
-import ProdutoServico from "../../modelo/produto";
 import Produto from "../../modelo/produto";
 import Cadastro from "../cadastro";
 
@@ -19,7 +18,7 @@ export default class CadastroProduto extends Cadastro{
         let nomeProd = this.entrada.receberTexto('Informe o nome do novo produto: ')
         let preco = this.entrada.receberNumero('Informe o preço de comercialização do produto: ')
         let codigo = this.entrada.receberTexto('Informe o código do produto ou serviço: ')
-        let produto = new ProdutoServico(nomeProd, preco, codigo)
+        let produto = new Produto(nomeProd, preco, codigo)
         this.produtos.push(produto)
 
         console.log(`Fim de cadastro de produto.`)

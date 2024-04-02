@@ -20,7 +20,7 @@ export default class DeletaServico extends Deletar{
             let servico;
             while (servico === undefined){
                 let codigo = this.entrada.receberTexto('Digite o codigo do serviço que deseja deletar: ')
-                servico = this.servicos.find(e => e.codigo === codigo)
+                servico = this.servicos.find(e => e.getCodigo === codigo)
 
                 if (!servico) {console.log(`Codigo não encontrado, tente novamente.`)}
             }
@@ -28,7 +28,7 @@ export default class DeletaServico extends Deletar{
         
             if(confirmacao === 1){
                 for (var i=0; i<=this.servicos.length-1; i++){
-                    if (this.servicos[i].codigo == servico.codigo){
+                    if (this.servicos[i].getCodigo == servico.getCodigo){
                         this.servicos.splice(i, 1)
                         console.log('Exclusão concluída com sucesso!')
                     }

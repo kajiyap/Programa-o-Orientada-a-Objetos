@@ -1,12 +1,12 @@
 import Entrada from "../../io/entrada";
-import ProdutoServico from "../../modelo/produto";
+import Produto from "../../modelo/produto";
 import Deletar from "../deletar";
 
 export default class DeletarProduto extends Deletar{
-    private produtos: Array<ProdutoServico>
+    private produtos: Array<Produto>
     private entrada: Entrada
 
-    constructor(produtos: Array<ProdutoServico>){
+    constructor(produtos: Array<Produto>){
         super()
         this.produtos = produtos
         this.entrada = new Entrada()

@@ -23,7 +23,7 @@ export default class AtualizarServicos extends Atualizar{
             let servico;
             while (servico === undefined){
                 let codigo = this.entrada.receberTexto('Digite o codigo do servico ou serviço: ')
-                servico = this.servicos.find(e => e.codigo === codigo)
+                servico = this.servicos.find(e => e.getCodigo === codigo)
 
                 if (!servico) {console.log(`Codigo não encontrado, tente novamente.`)}
             } 

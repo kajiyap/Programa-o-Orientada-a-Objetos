@@ -21,6 +21,7 @@ import DeletarProduto from "../negocio/Produto/deletarProduto";
 import CadastroServico from "../negocio/Servicos/cadastroServicos";
 import DeletaServico from "../negocio/Servicos/deletaServico";
 import Consumidos from "../negocio/Consumidos/Consumidos";
+import ListagemQuantidade from "../negocio/Consumidos/listagemQtde";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = criaEmpresa()
@@ -34,7 +35,7 @@ while (execucao) {
     console.log(`4 - Pets`)
     console.log(`5 - Produtos`)
     console.log(`6 - Serviços`)
-    console.log(`7 - Cadastrar Compras`)
+    console.log(`7 - Compras`)
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -212,9 +213,29 @@ while (execucao) {
             }
             break;
         case 7:
-            let compra = new Consumidos(empresa.getProdutos, empresa.getServicos, empresa.getClientes)
-            compra.consumir()
+            console.log('\nO que deseja nessa área?')
+            console.log('1 - Cadastro de compra')
+            console.log('2 - Listagem de clientes que mais consumiram por quantidade')
+            console.log('3 - Listagem de produtos/serviços mais consumidos')
+            console.log('4 - Listagem de produtos/serviços mais consumidos por pet')
+            console.log('5 - Listagem de clientes que mais consumiram por valor')
+            console.log('0 - Sair')
+
+            let oitavaEscolha = entrada.receberNumero('Escolha uma opção: ')
+            switch(oitavaEscolha){
+                case 1:
+                    let compra = new Consumidos(empresa.getProdutos, empresa.getServicos, empresa.getClientes)
+                    compra.consumir()
+                    break;
+                case 2: 
+                    let listaQtd = new ListagemQuantidade (empresa.getClientes)
+                    listaQtd.listar()
+                    break;
+                case 0:
+                    break;
+            }
             break;
+            
         case 0:
             execucao = false
             console.log(`Até mais`)

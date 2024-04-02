@@ -15,9 +15,9 @@ export default class ListagemServicos extends Listagem{
         else{
             console.log('\nLista de todos os servicos:')
             this.servicos.forEach(servico => {
-            console.log('Nome: '+servico.nome)
-            console.log('Preço: '+servico.preco)
-            console.log('Codigo: '+servico.codigo)
+            console.log('Nome: '+servico.getNome)
+            console.log('Preço: '+servico.getPreco)
+            console.log('Codigo: '+servico.getCodigo)
             console.log('------------------------------------')
             }
             )
