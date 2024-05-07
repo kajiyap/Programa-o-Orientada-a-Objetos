@@ -10,13 +10,13 @@ export default class ListagemQuantidade extends Listagem{
     }
 
     public listar(): void {
-        let clienteOrd = this.clientes.sort((a,b) => (a.getProdutosConsumidos.length+a.getServicosConsumidos.length < b.getProdutosConsumidos.length+b.getServicosConsumidos.length) ? 1:-1)
+        let clienteOrd = this.clientes.sort((a,b) => (a.qtdeConsumida() < b.qtdeConsumida()) ? 1:-1)
         let qtdeConsumida;
         let c = 1
         console.log("posição | Nome | Qtde consumida")
-        for (let i = 0; i < clienteOrd.length;i++){
-            if(clienteOrd[i].getProdutosConsumidos.length > 0 || clienteOrd[i].getServicosConsumidos.length > 0){
-                qtdeConsumida = clienteOrd[i].getProdutosConsumidos.length + clienteOrd[i].getServicosConsumidos.length
+        for (let i = 0; i < 10;i++){
+            if(clienteOrd[i].qtdeConsumida() > 0){
+                qtdeConsumida = clienteOrd[i].qtdeConsumida()
                 console.log(c++ +" | "+ clienteOrd[i].nome +" | "+ qtdeConsumida )
             }
             

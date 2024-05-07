@@ -66,4 +66,15 @@ export default class Cliente {
         this.nomeSocial = nomeSocial
     }
     
+    public valorConsumido(){
+        let valorConsumido = 0
+        this.getProdutosConsumidos.forEach((e)=>(valorConsumido = valorConsumido+e.getPreco ))
+        this.getServicosConsumidos.forEach((e)=>(valorConsumido = valorConsumido+e.getPreco))
+        return valorConsumido
+    }
+
+    public qtdeConsumida(){
+        let qtdeConsumida = this.getProdutosConsumidos.length+this.getServicosConsumidos.length
+        return qtdeConsumida
+    }
 }
