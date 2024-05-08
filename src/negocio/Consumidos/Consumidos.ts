@@ -1,5 +1,6 @@
 import Entrada from "../../io/entrada";
 import Cliente from "../../modelo/cliente";
+import Pet from "../../modelo/pet";
 import Produto from "../../modelo/produto";
 import Servico from "../../modelo/servico";
 
@@ -41,6 +42,7 @@ export default class Consumidos {
                             while (produto === undefined){
                                 let codigoProd = this.entrada.receberTexto('Digite o código do produto adquirido: ')
                                 produto = this.produtos.find(e => e.getCodigo === codigoProd)
+                                produto.comprasFeitas = produto.comprasFeitas + 1
                     
                                 if (!produto) {console.log(`Código não encontrado, tente novamente.`)}
                             }
@@ -55,6 +57,7 @@ export default class Consumidos {
                             while (servico === undefined){
                                 let codigoServ = this.entrada.receberTexto('Digite o código do serviço adquirido: ')
                                 servico = this.servicos.find(c => c.getCodigo === codigoServ)
+                                servico.comprasFeitas = servico.comprasFeitas + 1
                     
                                 if (!servico) {console.log(`Código não encontrado, tente novamente.`)}
                             }  

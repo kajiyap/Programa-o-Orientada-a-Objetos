@@ -23,6 +23,7 @@ import DeletaServico from "../negocio/Servicos/deletaServico";
 import Consumidos from "../negocio/Consumidos/Consumidos";
 import ListagemQuantidade from "../negocio/Consumidos/listagemQtde";
 import ListagemValor from "../negocio/Consumidos/listagemValor";
+import ListagemProd from "../negocio/Consumidos/listagemProdCons";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = criaEmpresa()
@@ -232,6 +233,12 @@ while (execucao) {
                     let listaQtd = new ListagemQuantidade (empresa.getClientes)
                     listaQtd.listar()
                     break;
+                case 3:
+                    let listaProd = new ListagemProd (empresa.getProdutos, empresa.getServicos)
+                    listaProd.listar()
+                    break;
+                case 4:
+                    
                 case 5:
                     let listaValor = new ListagemValor (empresa.getClientes)
                     listaValor.listar()

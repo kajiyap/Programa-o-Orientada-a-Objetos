@@ -2,10 +2,13 @@ export default class Produto {
     private nome: string
     private preco: number
     private codigo: string
+    public comprasFeitas:number
+
     constructor(nome: string, preco: number, codigo: string){
         this.nome = nome
         this.preco = preco
         this.codigo = codigo
+        this.comprasFeitas = 0
     }
 
     public get getNome(): string{
