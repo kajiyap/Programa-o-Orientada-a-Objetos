@@ -29,6 +29,14 @@ export default class Consumidos {
                 if (!cliente) {console.log(`CPF não encontrado, tente novamente.`)}
             } 
 
+            var pet;
+            while (pet === undefined){
+                let nomePet = this.entrada.receberTexto('Digite o nome do pet que utilizará esse produto/seviço: ')
+                pet = cliente.getPets.find(e => e.getNome === nomePet)
+
+                if (!pet) {console.log('Pet não encontrado, tente novamente')}
+            }
+
             let continua = 1;
             while(continua == 1){
                 let compra = this.entrada.receberNumero('Informe o que o cliente comprou(1 para produto ou 2 para serviço): ')
@@ -43,6 +51,8 @@ export default class Consumidos {
                                 let codigoProd = this.entrada.receberTexto('Digite o código do produto adquirido: ')
                                 produto = this.produtos.find(e => e.getCodigo === codigoProd)
                                 produto.comprasFeitas = produto.comprasFeitas + 1
+                                produto.racasCompras.push(pet.getRaca)
+                                produto.tiposCompras.push(pet.getTipo)
                     
                                 if (!produto) {console.log(`Código não encontrado, tente novamente.`)}
                             }
@@ -58,6 +68,8 @@ export default class Consumidos {
                                 let codigoServ = this.entrada.receberTexto('Digite o código do serviço adquirido: ')
                                 servico = this.servicos.find(c => c.getCodigo === codigoServ)
                                 servico.comprasFeitas = servico.comprasFeitas + 1
+                                servico.racasCompras.push(pet.getRaca)
+                                servico.tiposCompras.push(pet.getTipo)
                     
                                 if (!servico) {console.log(`Código não encontrado, tente novamente.`)}
                             }  

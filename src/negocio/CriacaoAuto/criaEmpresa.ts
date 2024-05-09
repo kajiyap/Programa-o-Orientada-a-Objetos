@@ -6,6 +6,7 @@ import criacaoCPF from "./criacaoCPF"
 import gerarTelefone from "./criacaoTelefone"
 import Produto from "../../modelo/produto"
 import Servico from "../../modelo/servico"
+import { criaPet1, criaPet2, criaPet3, criaPet4 } from "./criaPet"
 
 export default function criaEmpresa(): Empresa{
     let empresa = new Empresa()
@@ -53,6 +54,12 @@ export default function criaEmpresa(): Empresa{
         let servico = new Servico(nomeServ, precoServ, codigoServ)
         empresa.getServicos.push(servico)
     }
+
+    /* CRIANDO 4 PETS PARA O USUÁRIO PADRÃO */
+    empresa.getClientes[0].getPets.push(criaPet1())
+    empresa.getClientes[0].getPets.push(criaPet2())
+    empresa.getClientes[0].getPets.push(criaPet3())
+    empresa.getClientes[0].getPets.push(criaPet4())
 
 
     return empresa

@@ -8,6 +8,7 @@ export default class Pet {
     private genero: string
     private produtosConsumidos: Array<Produto>
     private servicosConsumidos:Array<Servico>
+    
 
     constructor(nome: string, raca: string, genero: string, tipo: string) {
         this.nome = nome
