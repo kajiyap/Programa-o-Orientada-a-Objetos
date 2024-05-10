@@ -1,16 +1,19 @@
 import Entrada from "../../io/entrada";
 import Cliente from "../../modelo/cliente";
+import Empresa from "../../modelo/empresa";
 import Pet from "../../modelo/pet";
 import Cadastro from "../cadastro";
 
 export default class CadastroPet extends Cadastro{
     private clientes: Array<Cliente>
     private entrada: Entrada
+    private empresa: Empresa
 
-    constructor(clientes: Array<Cliente>){
+    constructor(clientes: Array<Cliente>, empresa: Empresa){
         super()
         this.clientes = clientes
         this.entrada = new Entrada()
+        this.empresa = empresa
     }
 
     public cadastrar(): void {
@@ -33,6 +36,7 @@ export default class CadastroPet extends Cadastro{
         let generoPet = this.entrada.receberTexto(`Informe o gênero do seu pet: `)
         let pet = new Pet(nomePet, racaPet, generoPet, tipoPet)
         cliente.getPets.push(pet)
+        this.empresa[0].getPets.push(pet)
 
         console.log('\nPet cadastrado')
     }

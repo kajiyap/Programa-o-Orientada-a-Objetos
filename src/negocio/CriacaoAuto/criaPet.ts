@@ -1,4 +1,4 @@
-import Empresa from "../../modelo/empresa"
+
 import Pet from "../../modelo/pet"
 
 export function criaPet1(){

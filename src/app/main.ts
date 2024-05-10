@@ -136,7 +136,7 @@ while (execucao) {
             let quintaOpcao = entrada.receberNumero('Por favor, escolha uma opção: ')
             switch(quintaOpcao){
                 case 1:
-                    let cadastroPet = new CadastroPet(empresa.getClientes)
+                    let cadastroPet = new CadastroPet(empresa.getClientes, empresa)
                     cadastroPet.cadastrar()
                     break;
                 case 2:
@@ -227,7 +227,7 @@ while (execucao) {
             let oitavaEscolha = entrada.receberNumero('Escolha uma opção: ')
             switch(oitavaEscolha){
                 case 1:
-                    let compra = new Consumidos(empresa.getProdutos, empresa.getServicos, empresa.getClientes)
+                    let compra = new Consumidos(empresa.getProdutos, empresa.getServicos, empresa.getClientes, empresa.getPets)
                     compra.consumir()
                     break;
                 case 2: 
@@ -239,7 +239,7 @@ while (execucao) {
                     listaProd.listar()
                     break;
                 case 4:
-                    let listaQtdPet = new ListagemConsPet (empresa.getProdutos, empresa.getServicos)
+                    let listaQtdPet = new ListagemConsPet (empresa.getPets)
                     listaQtdPet.listar()
                     break;
                 case 5:

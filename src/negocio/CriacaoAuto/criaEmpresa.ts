@@ -60,8 +60,15 @@ export default function criaEmpresa(): Empresa{
     empresa.getClientes[0].getPets.push(criaPet2())
     empresa.getClientes[0].getPets.push(criaPet3())
     empresa.getClientes[0].getPets.push(criaPet4())
+    empresa.getPets.push(criaPet1())
+    empresa.getPets.push(criaPet2())
+    empresa.getPets.push(criaPet3())
+    empresa.getPets.push(criaPet4())
 
+    let produtos = empresa.getProdutos
+    let servicos = empresa.getServicos
 
+    
     return empresa
 /* ___________________________ */
 }
