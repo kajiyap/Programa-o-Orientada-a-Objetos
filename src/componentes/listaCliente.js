@@ -1,71 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import ElementoListaCliente from "./elementoListaCliente"
 export default function ListaCliente(props) {
     let tema = props.tema
+    let rg = ["12.456.789-1", "32.654.987-1", "75.159.852-8"]
+    let telefones = ["(12)99257-7679", "(35)98874-6569", "(11)99874-8852"]
     return (
         <div className="container-fluid">
-            <div className="list-group">
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 1</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 2</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 3</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 4</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 5</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 6</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-                <div style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                    <a href="#" className="list-group-item list-group-item-action">Cliente 7</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <h5>Atualização de cliente</h5>
-                            <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Novo Nome" aria-label="Novo Nome" aria-describedby="basic-addon1" />
-                            </div>
-                            <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Novo Nome social" aria-label="Novo Nome social" aria-describedby="basic-addon1" />
-                            </div>
-                            <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Novo CPF" aria-label="Novo CPF" aria-describedby="basic-addon1" />
-                                <input type="text" className="form-control" placeholder="Novo Data de emissão do CPF" aria-label="Novo Data de emissão do CPF" aria-describedby="basic-addon1" />
-                            </div>
-                            <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
-                                <input type="text" className="form-control" placeholder="Novo E-mail" aria-label="Novo E-mail" aria-describedby="basic-addon1" />
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar alterações</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                    <p>Selecione um cliente para ver seus dados.</p>
+            <ElementoListaCliente nome="Pedro Kajiya" nomeSocial="Pedrovisk" CPF="123.456.789-10" email="pedrokajiya@email.com" tema={tema} telefone={telefones} rg={rg}/>
+            <ElementoListaCliente nome="Matheus Madeira" nomeSocial="Madeira" CPF="159.753.852.78" email="matheusmadeira@email.com" tema={tema} telefone={telefones} rg={rg}/>
+            <ElementoListaCliente nome="Bruno Silvério" nomeSocial="Bruno T.I" CPF="984.789.312-55" email="brunosilverio@email.com" tema={tema} telefone={telefones} rg={rg}/>
+            <ElementoListaCliente nome="Caua Dezidera" nomeSocial="Brinquedo" CPF="158.456.565-88" email="cauad@email.com" tema={tema} telefone={telefones} rg={rg}/>
+            <ElementoListaCliente nome="Erick Awata" nomeSocial="DJ Japão" CPF="122.455.788-10" email="djjapao@email.com" tema={tema} telefone={telefones} rg={rg}/>
         </div>
     )
 }
