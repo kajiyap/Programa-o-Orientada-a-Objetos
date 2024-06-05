@@ -45,13 +45,11 @@ export default function FormularioCadastroCliente(props) {
                                     Selecione o cliente                        
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Cliente 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 5</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 6</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 7</a></li>
+                                    <li><a class="dropdown-item" href="#">Pedro</a></li>
+                                    <li><a class="dropdown-item" href="#">Matheus</a></li>
+                                    <li><a class="dropdown-item" href="#">Bruno</a></li>
+                                    <li><a class="dropdown-item" href="#">Cauã</a></li>
+                                    <li><a class="dropdown-item" href="#">Erick</a></li>
                                 </ul>
                             </div>
                             <div className="input-group mb-3">
@@ -67,18 +65,16 @@ export default function FormularioCadastroCliente(props) {
                     <div class="collapse" id="collapseRg">
                         <form style={{background: tema, padding: "3vh", borderRadius: "3vh", margin:"1vh", alignSelf: "flex-end"}}>
                             <h5>Cadastro de RG</h5>
-                            <div class="dropdown" style={{margin:"1vh"}}>
+                            <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Selecione o cliente
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Cliente 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 5</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 6</a></li>
-                                    <li><a class="dropdown-item" href="#">Cliente 7</a></li>
+                                    <li><a class="dropdown-item" href="#">Pedro</a></li>
+                                    <li><a class="dropdown-item" href="#">Matheus</a></li>
+                                    <li><a class="dropdown-item" href="#">Bruno</a></li>
+                                    <li><a class="dropdown-item" href="#">Cauã</a></li>
+                                    <li><a class="dropdown-item" href="#">Erick</a></li>
                                 </ul>
                             </div>
                             <div className="input-group mb-3">

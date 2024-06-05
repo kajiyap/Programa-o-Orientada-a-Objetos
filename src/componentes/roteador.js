@@ -2,7 +2,9 @@
 import { useState } from "react";
 import BarraNavegacao from "./barraNavegacao"
 import ListaCliente from "./listaCliente";
-import FormularioCadastroCliente from "./formularioCadastroCliente";
+import FormularioCadastroCliente from "./CadastroCliente";
+import ListaPet from "./listaPet";
+import ListaProdServ from "./listaProdServ";
 
 export default function Roteador() {
     const [tela, setTela] = useState('Clientes')
@@ -15,15 +17,29 @@ export default function Roteador() {
         if (tela === 'Clientes') {
             return (
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Cadastros']} />
+                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']} />
                     <ListaCliente tema="#e3f2fd" />
                 </>
             )
-        } else {
+        } if(tela === 'Cadastros') {
             return (
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Cadastros']} />
+                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']} />
                     <FormularioCadastroCliente tema="#e3f2fd" />
+                </>
+            )
+        } if(tela === 'Pets'){
+            return(
+                <>
+                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']}/>
+                    <ListaPet/>
+                </>
+            )
+        } if(tela === 'Produtos/Serviços'){
+            return(
+                <>
+                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']}/>
+                    <ListaProdServ/>
                 </>
             )
         }

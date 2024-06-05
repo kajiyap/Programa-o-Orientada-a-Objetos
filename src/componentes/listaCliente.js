@@ -6,6 +6,7 @@ export default function ListaCliente(props) {
     let telefones = ["(12)99257-7679", "(35)98874-6569", "(11)99874-8852"]
     return (
         <div className="container-fluid">
+            <h1>Clientes</h1>
                     <p>Selecione um cliente para ver seus dados.</p>
             <ElementoListaCliente nome="Pedro Kajiya" nomeSocial="Pedrovisk" CPF="123.456.789-10" email="pedrokajiya@email.com" tema={tema} telefone={telefones} rg={rg}/>
             <ElementoListaCliente nome="Matheus Madeira" nomeSocial="Madeira" CPF="159.753.852.78" email="matheusmadeira@email.com" tema={tema} telefone={telefones} rg={rg}/>

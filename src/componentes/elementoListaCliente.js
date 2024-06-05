@@ -11,7 +11,7 @@ export default function ElementoListaCliente (props){
     let tema = props.tema
     return(
     <div>
-        <div className="list-group" style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
+        <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
             <a href="#" className="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">{nome}</a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
         </div>
@@ -58,12 +58,11 @@ export default function ElementoListaCliente (props){
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Atualização de cliente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <h5>Atualização de cliente</h5>
                         <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="Novo Nome" aria-label="Novo Nome" aria-describedby="basic-addon1" />
                         </div>
