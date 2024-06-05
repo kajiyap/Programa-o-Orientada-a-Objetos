@@ -5,8 +5,11 @@ import ListaCliente from "./listaCliente";
 import FormularioCadastroCliente from "./CadastroCliente";
 import ListaPet from "./listaPet";
 import ListaProdServ from "./listaProdServ";
+import ListaVenda from "./listaVendas";
 
 export default function Roteador() {
+    const tema = "#0d6efd"
+    const botoes = [ 'Cadastros', 'Clientes', 'Pets', 'Produtos/Serviços', 'Vendas']
     const [tela, setTela] = useState('Clientes')
     const selecionarView = (valor, e) => {
         e.preventDefault()
@@ -17,29 +20,36 @@ export default function Roteador() {
         if (tela === 'Clientes') {
             return (
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']} />
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes} />
                     <ListaCliente tema="#e3f2fd" />
                 </>
             )
         } if(tela === 'Cadastros') {
             return (
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']} />
-                    <FormularioCadastroCliente tema="#e3f2fd" />
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes} />
+                    <FormularioCadastroCliente tema={tema} />
                 </>
             )
         } if(tela === 'Pets'){
             return(
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']}/>
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes}/>
                     <ListaPet/>
                 </>
             )
         } if(tela === 'Produtos/Serviços'){
             return(
                 <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Pets', 'Cadastros', 'Produtos/Serviços']}/>
-                    <ListaProdServ/>
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes}/>
+                    <ListaProdServ tema={tema}/>
+                </>
+            )
+        } if(tela === 'Vendas'){
+            return(
+                <>
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes}/>
+                    <ListaVenda tema={tema}/>
                 </>
             )
         }

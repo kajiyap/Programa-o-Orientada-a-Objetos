@@ -12,10 +12,11 @@ export default function ElementoListaCliente (props){
     return(
     <div>
         <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-            <a href="#" className="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">{nome}</a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+            <a href="#" className="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target={"#"+ CPF} aria-expanded="false">{nome}</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{marginRight: '1vh'}}>Editar</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>
         </div>
-        <div class="collapse" id="collapse1" style={{margin: "2vh 3vh"}}>
+        <div class="collapse" id={CPF} style={{margin: "2vh 3vh"}}>
             <div className="row">                        
                 <div className="col">
                     <h5>Dados do cliente</h5>

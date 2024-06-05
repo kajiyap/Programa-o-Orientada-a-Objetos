@@ -1,13 +1,15 @@
-export default function ElementoProdServ (props) {
+export default function ElementoVenda (props) {
     const tema = props.tema
-    const codigo = props.codigo
-    const nome = props.nome
+    const comprador = props.comprador
+    const produto = props.produto
+    const pet = props.pet
     const preco = props.preco
     return(
         <div>
             <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh"}}>
-                <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{codigo}</a>
-                <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{nome}</a>
+                <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{comprador}</a>
+                <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{pet}</a>
+                <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{produto}</a>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{preco}</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" style={{marginRight: '1vh'}} data-bs-target="#exampleModal">Editar</button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>
@@ -16,13 +18,19 @@ export default function ElementoProdServ (props) {
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Atualização de Produto ou Serviço</h5>
+                        <h5 class="modal-title">Atualização de Venda</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Novo Nome" aria-label="Novo Nome" aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder="CPF" aria-label="Novo Comprador" aria-describedby="basic-addon1" />
+                            </div>
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder="Nome" aria-label="Novo Pet" aria-describedby="basic-addon1" />
+                            </div>
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder="Produto ou serviço" aria-label="Novo Comprador" aria-describedby="basic-addon1" />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>R$</span> 

@@ -12,7 +12,8 @@ export default function ElementoListaPet (props){
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{tipo}</a>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{raca}</a>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">{genero}</a>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" style={{marginRight: '1vh'}} data-bs-target="#exampleModal">Editar</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir</button>
             </div>  
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

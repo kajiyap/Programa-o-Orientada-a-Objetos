@@ -5,9 +5,9 @@ export default function ListaPet (props){
     return(
         <div className="container-fluid">
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                <h1>Pets</h1>  <CadastrarPet/> 
+                <h2>Pets</h2>  <CadastrarPet/> 
             </div>
-            <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh", paddingRight: "10vh", fontSize: "3vh"}}>
+            <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh", paddingRight: "19vh", fontSize: "3vh"}}>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">Dono</a>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">Nome</a>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">Tipo</a>
