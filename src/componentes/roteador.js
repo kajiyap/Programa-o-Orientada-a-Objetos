@@ -6,11 +6,12 @@ import FormularioCadastroCliente from "./CadastroCliente";
 import ListaPet from "./listaPet";
 import ListaProdServ from "./listaProdServ";
 import ListaVenda from "./listaVendas";
+import Dashboard from "./dashboardListagens";
 
 export default function Roteador() {
     const tema = "#0d6efd"
-    const botoes = [ 'Cadastros', 'Clientes', 'Pets', 'Produtos/Serviços', 'Vendas']
-    const [tela, setTela] = useState('Clientes')
+    const botoes = ['Dash', 'Cadastros', 'Clientes', 'Pets', 'Produtos/Serviços', 'Vendas']
+    const [tela, setTela] = useState('Dash')
     const selecionarView = (valor, e) => {
         e.preventDefault()
         setTela(valor)
@@ -50,6 +51,13 @@ export default function Roteador() {
                 <>
                     <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes}/>
                     <ListaVenda tema={tema}/>
+                </>
+            )
+        } if(tela === 'Dash'){
+            return(
+                <>
+                    <BarraNavegacao seletorView={selecionarView} tema={tema} botoes={botoes}/>
+                    <Dashboard tema ={tema}/>
                 </>
             )
         }
