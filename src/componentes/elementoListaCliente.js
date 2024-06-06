@@ -38,19 +38,20 @@ export default function ElementoListaCliente (props){
                     </div>
                 </div>
                 <div className="col">
-                    <h5>RG's</h5>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}><h5>RG's</h5><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalRG" style={{marginLeft: '43vh'}}>Novo</button></div>
+                    
                     <div class="list-group" style={{margin:"1vh"}}>
-                        <a className="list-group-item">{rg[2]}</a>
-                        <a className="list-group-item">{rg[0]}</a>
-                        <a className="list-group-item">{rg[1]}</a>
+                        <a className="list-group-item">{rg[2]}<button type="button" class="btn btn-danger" style={{marginLeft: '33vh'}}>Excluir</button></a>
+                        <a className="list-group-item">{rg[0]}<button type="button" class="btn btn-danger" style={{marginLeft: '33vh'}}>Excluir</button></a>
+                        <a className="list-group-item">{rg[1]}<button type="button" class="btn btn-danger" style={{marginLeft: '33vh'}}>Excluir</button></a>
                     </div>
                 </div>                            
                 <div className="col">
-                    <h5>Telefones</h5>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}><h5>Telefones</h5><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTel" style={{marginLeft: '36vh'}}>Novo</button></div>
                     <div class="list-group" style={{margin:"1vh"}}>
-                        <a className="list-group-item">{telefone[0]}</a>
-                        <a className="list-group-item">{telefone[1]}</a>
-                        <a className="list-group-item">{telefone[2]}</a>
+                        <a className="list-group-item">{telefone[0]} <button type="button" class="btn btn-danger" style={{marginLeft: '29vh'}}>Excluir</button></a>
+                        <a className="list-group-item">{telefone[1]} <button type="button" class="btn btn-danger" style={{marginLeft: '29vh'}}>Excluir</button></a>
+                        <a className="list-group-item">{telefone[2]} <button type="button" class="btn btn-danger" style={{marginLeft: '29vh'}}>Excluir</button></a>
                     </div>
                 </div>                            
             </div>
@@ -83,6 +84,48 @@ export default function ElementoListaCliente (props){
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Salvar alterações</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalRG" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Novo RG</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Novo RG" aria-label="Novo RG" aria-describedby="basic-addon1" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalTel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Novo RG</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Novo Telefone" aria-label="Novo Telefone" aria-describedby="basic-addon1" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
                 </div>
                 </div>
             </div>

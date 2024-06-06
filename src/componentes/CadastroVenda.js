@@ -1,5 +1,4 @@
-export default function CadastrarProdServ(props){
-    const nome = props.nome
+export default function CadastrarVenda(props){
     const tema = props.tema
     return(
         <div>
@@ -9,17 +8,23 @@ export default function CadastrarProdServ(props){
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Novo {nome}</h5>
+                        <h5 class="modal-title">Nova Venda</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder={`Nome do ${nome}`} aria-label={`Nome do ${nome}`} aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder={`CPF`} aria-label={`Comprador`} aria-describedby="basic-addon1" />
+                            </div>
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder={`Nome`} aria-label={`Pet`} aria-describedby="basic-addon1" />
+                            </div>
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder={`Nome`} aria-label={`Produto`} aria-describedby="basic-addon1" />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>R$</span> 
-                                <input type="text" className="form-control" placeholder="Preço" aria-label="Preço" aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder="Preço de venda" aria-label="Preço de venda" aria-describedby="basic-addon1" />
                             </div>
                         </form>
                     </div>

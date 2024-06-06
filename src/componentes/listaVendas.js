@@ -1,3 +1,4 @@
+import CadastrarVenda from "./CadastroVenda"
 import ElementoVenda from "./elementoVenda"
 
 export default function ListaVenda (props){
@@ -5,7 +6,7 @@ export default function ListaVenda (props){
     return(
         <div className="container-fluid">
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                <h2>Vendas</h2> 
+                <h2>Vendas</h2> <CadastrarVenda tema={tema}/>
             </div>
             <div className="list-group list-group-flush" style={{display: "flex", flexDirection: "row", margin: "0.5vh", paddingRight: "19vh", fontSize: "3vh"}}>
                 <a href="#" className="list-group-item list-group-item-action" aria-expanded="false">Comprador</a>

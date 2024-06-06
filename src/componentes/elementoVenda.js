@@ -30,7 +30,7 @@ export default function ElementoVenda (props) {
                                 <input type="text" className="form-control" placeholder="Nome" aria-label="Novo Pet" aria-describedby="basic-addon1" />
                             </div>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Produto ou serviço" aria-label="Novo Comprador" aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder="Novo produto ou serviço" aria-label="Novo produto ou serviço" aria-describedby="basic-addon1" />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>R$</span> 
