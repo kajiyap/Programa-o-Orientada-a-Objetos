@@ -4,6 +4,8 @@ import ListaCliente from "./listaClientes";
 import FormularioCadastroCliente from "./formularioCadastroCliente";
 import ListaPet from "./listaPet";
 import ListaProdServ from "./listaProdServ";
+import ListaVenda from "./listaVenda";
+import Dashboard from "./dashboard";
 
 type state = {
     tela: string
@@ -14,7 +16,7 @@ export default class Roteador extends Component<{}, state>{
     constructor(props: {} | Readonly<{}>) {
         super(props)
         this.state = {
-            tela: 'Clientes',
+            tela: 'Dash',
             tema: "#e3f2fd"
         }
         this.selecionarView = this.selecionarView.bind(this)
@@ -29,7 +31,7 @@ export default class Roteador extends Component<{}, state>{
     }
 
     render() {
-        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema={this.state.tema} botoes={['Clientes', 'Cadastros', 'Pets', 'Produtos/Serviços']} />
+        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema={this.state.tema} botoes={['Dash', 'Clientes', 'Cadastros', 'Pets', 'Produtos/Serviços', 'Vendas']} />
         if (this.state.tela === 'Clientes') {
             return (
                 <>
@@ -51,11 +53,25 @@ export default class Roteador extends Component<{}, state>{
                     <ListaPet/>
                 </>
             )
-        } if(this.state.tela == 'Produtos/Serviços'){
+        } if(this.state.tela === 'Produtos/Serviços'){
             return(
                 <>
                     {barraNavegacao}
                     <ListaProdServ tema={this.state.tema}/>
+                </>
+            )
+        } if(this.state.tela === 'Vendas'){
+            return(
+                <>
+                {barraNavegacao}
+                <ListaVenda tema={this.state.tema}/>
+                </>
+            )
+        } if(this.state.tela === 'Dash'){
+            return(
+                <>
+                {barraNavegacao}
+                <Dashboard tema={this.state.tema}/>
                 </>
             )
         }
