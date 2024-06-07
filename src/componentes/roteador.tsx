@@ -3,6 +3,7 @@ import BarraNavegacao from "./barraNavegacao";
 import ListaCliente from "./listaClientes";
 import FormularioCadastroCliente from "./formularioCadastroCliente";
 import ListaPet from "./listaPet";
+import ListaProdServ from "./listaProdServ";
 
 type state = {
     tela: string
@@ -28,7 +29,7 @@ export default class Roteador extends Component<{}, state>{
     }
 
     render() {
-        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema={this.state.tema} botoes={['Clientes', 'Cadastros', 'Pets']} />
+        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema={this.state.tema} botoes={['Clientes', 'Cadastros', 'Pets', 'Produtos/Serviços']} />
         if (this.state.tela === 'Clientes') {
             return (
                 <>
@@ -48,6 +49,13 @@ export default class Roteador extends Component<{}, state>{
                 <>
                     {barraNavegacao}
                     <ListaPet/>
+                </>
+            )
+        } if(this.state.tela == 'Produtos/Serviços'){
+            return(
+                <>
+                    {barraNavegacao}
+                    <ListaProdServ tema={this.state.tema}/>
                 </>
             )
         }
