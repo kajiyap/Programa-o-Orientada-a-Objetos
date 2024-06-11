@@ -6,8 +6,8 @@ import FormularioCadastroCliente from "./CadastroCliente";
 
 export default function Roteador() {
     const tema = "#0d6efd"
-    const botoes = ['Dash', 'Cadastros', 'Clientes']
-    const [tela, setTela] = useState('Dash')
+    const botoes = ['Cadastros', 'Clientes']
+    const [tela, setTela] = useState('Cadastros')
     const selecionarView = (valor, e) => {
         e.preventDefault()
         setTela(valor)
