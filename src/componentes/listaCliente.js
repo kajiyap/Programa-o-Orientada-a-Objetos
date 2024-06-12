@@ -1,18 +1,33 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect, useState } from "react"
 import ElementoListaCliente from "./elementoListaCliente"
+import axios from "axios"
+
 export default function ListaCliente(props) {
     let tema = props.tema
-    let rg = ["12.456.789-1", "32.654.987-1", "75.159.852-8"]
-    let telefones = ["(12)99257-7679", "(35)98874-6569", "(11)99874-8852"]
+    const [data, setData] = useState([])
+    const getClientes = () => {
+        let url = 'http://localhost:32831/cliente/clientes'
+        axios.get(url)
+        .then(response => {
+            console.log('Cliente atualizado com sucesso:', response.data);
+            // Atualizar a interface conforme necessário
+        })
+        .catch(error => {
+            console.log(error.response.data);
+            setData(error.response.data)
+        });
+    }
+    useEffect(()=>{
+        getClientes()
+    },[])
     return (
         <div className="container-fluid">
             <h1>Clientes</h1>
-                    <p>Selecione um cliente para ver seus dados.</p>
-            <ElementoListaCliente nome="Pedro Kajiya" nomeSocial="Pedrovisk" CPF="123.456.789-10" email="pedrokajiya@email.com" tema={tema} telefone={telefones} rg={rg}/>
-            <ElementoListaCliente nome="Matheus Madeira" nomeSocial="Madeira" CPF="159.753.852.78" email="matheusmadeira@email.com" tema={tema} telefone={telefones} rg={rg}/>
-            <ElementoListaCliente nome="Bruno Silvério" nomeSocial="Bruno T.I" CPF="984.789.312-55" email="brunosilverio@email.com" tema={tema} telefone={telefones} rg={rg}/>
-            <ElementoListaCliente nome="Caua Dezidera" nomeSocial="Brinquedo" CPF="158.456.565-88" email="cauad@email.com" tema={tema} telefone={telefones} rg={rg}/>
-            <ElementoListaCliente nome="Erick Awata" nomeSocial="DJ Japão" CPF="122.455.788-10" email="djjapao@email.com" tema={tema} telefone={telefones} rg={rg}/>
+                <p>Selecione um cliente para ver seus dados.</p>
+            {data.map(element => {
+                 return <ElementoListaCliente tema={tema} id={element.id} nome={element.nome} nomeSocial={element.nomeSocial} email={element.email} endereco={element.endereco} telefones={element.telefones}/>
+            })}
         </div>
     )
 }
