@@ -10,23 +10,23 @@ export default function ListaCliente(props) {
         let url = 'http://localhost:32831/cliente/clientes'
         axios.get(url)
         .then(response => {
-            console.log('Cliente atualizado com sucesso:', response.data);
             // Atualizar a interface conforme necessário
         })
         .catch(error => {
-            console.log(error.response.data);
             setData(error.response.data)
+            console.log(error.response.data)
         });
     }
     useEffect(()=>{
         getClientes()
     },[])
+
     return (
         <div className="container-fluid">
             <h1>Clientes</h1>
                 <p>Selecione um cliente para ver seus dados.</p>
             {data.map(element => {
-                 return <ElementoListaCliente tema={tema} id={element.id} nome={element.nome} nomeSocial={element.nomeSocial} email={element.email} endereco={element.endereco} telefones={element.telefones}/>
+                 return <ElementoListaCliente onUpdate={getClientes} tema={tema} id={element.id} nome={element.nome} nomeSocial={element.nomeSocial} email={element.email} endereco={element.endereco} telefones={element.telefones}/>
             })}
         </div>
     )

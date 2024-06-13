@@ -61,6 +61,7 @@ export default function FormularioCadastroCliente(props) {
         e.preventDefault();
         axios.post('http://localhost:32831/cliente/cadastrar', formData)
             .then(response => {
+                alert('Cadastrado com sucesso')
                 console.log('Cliente cadastrado com sucesso:', response.data);
                 // Limpar formulário ou dar feedback ao usuário
             })
