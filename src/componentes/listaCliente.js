@@ -12,9 +12,9 @@ export default function ListaCliente(props) {
         .then(response => {
             // Atualizar a interface conforme necessário
         })
-        .catch(error => {
-            setData(error.response.data)
-            console.log(error.response.data[0])
+        .catch(found => {
+            setData(found.response.data)
+            console.log(found.response.data[0])
         });
     }
     useEffect(()=>{
