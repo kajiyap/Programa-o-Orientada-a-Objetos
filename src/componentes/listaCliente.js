@@ -14,7 +14,7 @@ export default function ListaCliente(props) {
         })
         .catch(error => {
             setData(error.response.data)
-            console.log(error.response.data)
+            console.log(error.response.data[0])
         });
     }
     useEffect(()=>{

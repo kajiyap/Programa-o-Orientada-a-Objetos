@@ -21,6 +21,22 @@ export default function FormularioCadastroCliente(props) {
         }
     });
 
+    const initFormData = {
+        nome: '',
+        nomeSocial: '',
+        email: '',
+        telefones: [{ ddd: '', numero: '' }],
+        endereco: {
+            bairro: '',
+            cidade: '',
+            estado: '',
+            rua: '',
+            numero: '',
+            cep: '',
+            informacoesAdicionais: ''
+        }
+    }
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         if (name in formData.endereco) {
@@ -63,6 +79,7 @@ export default function FormularioCadastroCliente(props) {
             .then(response => {
                 alert('Cadastrado com sucesso')
                 console.log('Cliente cadastrado com sucesso:', response.data);
+                setFormData(initFormData)
                 // Limpar formulário ou dar feedback ao usuário
             })
             .catch(error => {

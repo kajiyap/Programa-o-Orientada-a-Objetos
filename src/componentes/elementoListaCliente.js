@@ -3,40 +3,26 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-
 export default function ElementoListaCliente(props) {
-    const nome = props.nome
-    const nomeSocial = props.nomeSocial
-    let email = ''
-    props.email? email = props.email : email = ''
-    let telefones = []
-    props.telefones? telefones = props.telefones : telefones = ['']
-    const endereco = props.endereco
-    const tema = props.tema
-    const id =`${props.id}`
-    const [status, setStatus] = useState()
-    const getClientes = props.onUpdate
-
+    const { nome, nomeSocial, email = '', telefones = [''], endereco, tema, id, onUpdate: getClientes } = props;
+    const [status, setStatus] = useState();
     const [editData, setEditData] = useState({
-        id: id,
-        nome: nome,
-        nomeSocial: nomeSocial,
-        email: email,
+        id,
+        nome,
+        nomeSocial,
+        email,
+        endereco,
         telefone: telefones,
-        endereco: endereco,
     });
 
     const [dataTel, setDataTel] = useState({
         telefone: telefones,
-        novoTelefone: {
-            ddd: '',
-            numero: '',
-        }, // Estado para armazenar o novo número de telefone
+        novoTelefone: { ddd: '', numero: '' },
     });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-    
+
         if (name.startsWith('endereco.')) {
             const enderecoField = name.split('.')[1];
             setEditData((prevState) => ({
@@ -76,7 +62,7 @@ export default function ElementoListaCliente(props) {
     const handleAddTelefone = () => {
         const { ddd, numero } = dataTel.novoTelefone;
         if (ddd.trim() !== '' && numero.trim() !== '') {
-            const novoTelefone = { ddd, numero };
+            const novoTelefone = { ddd, numero, id: Math.random() }; // Adding a temporary id
             setEditData(prevState => ({
                 ...prevState,
                 telefone: [...prevState.telefone, novoTelefone],
@@ -87,30 +73,26 @@ export default function ElementoListaCliente(props) {
             }));
         }
     };
-    
 
     const handleSave = () => {
-        editData.telefone = dataTel.telefone
         axios.put(`http://localhost:32831/cliente/atualizar`, editData)
             .then(response => {
                 alert('Cliente atualizado com sucesso!');
                 console.log('Cliente atualizado com sucesso:', response.data);
-                setStatus(1)
-                getClientes()
-                // Atualizar a interface conforme necessário
+                setStatus(1);
+                getClientes();
             })
             .catch(error => {
                 console.error('Erro ao atualizar cliente:', error);
-                setStatus(2)
+                setStatus(2);
             });
     };
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:32831/cliente/excluir`, {data : {id}})
+        axios.delete(`http://localhost:32831/cliente/excluir`, { data: { id } })
             .then(response => {
                 console.log('Cliente excluído com sucesso:', response.data);
-                getClientes()
-                // Atualizar a interface conforme necessário
+                getClientes();
             })
             .catch(error => {
                 console.error('Erro ao excluir cliente:', error);
@@ -122,7 +104,7 @@ export default function ElementoListaCliente(props) {
             <div className="list-group list-group-flush" style={{ display: "flex", flexDirection: "row", margin: "0.5vh" }}>
                 <a href="#" className="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target={`#${id}`} aria-expanded="false" aria-controls={id}>
                     {nome}
-                </a>                
+                </a>
                 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#modalEditar-${id}`} style={{ marginRight: '1vh' }}>Editar</button>
                 <button type="button" className="btn btn-danger" onClick={() => handleDelete(id)}>Excluir</button>
             </div>
@@ -169,7 +151,7 @@ export default function ElementoListaCliente(props) {
                             <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>CEP</span>
                             <span className="form-control" aria-describedby="basic-addon1">{endereco.codigoPostal}</span>
                         </div>
-                        <h6>Informacoes adicionais</h6>
+                        <h6>Informações adicionais</h6>
                         <div className="input-group mb-3">
                             <span className="form-control" aria-describedby="basic-addon1">{endereco.informacoesAdicionais}</span>
                         </div>
@@ -179,12 +161,12 @@ export default function ElementoListaCliente(props) {
                             <h5>Telefones</h5>
                         </div>
                         <div className="list-group" style={{ margin: "1vh" }}>
-                        {editData.telefone.map((tel) => (
-                            <div className="list-group-item d-flex justify-content-between align-items-center" key={tel.id}>
-                                {tel.ddd} {tel.numero}
-                            </div>
-                        ))}
-                    </div>
+                            {editData.telefone.map((tel, index) => (
+                                <div className="list-group-item d-flex justify-content-between align-items-center" key={index}>
+                                    {tel.ddd} {tel.numero}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,7 +179,7 @@ export default function ElementoListaCliente(props) {
                         </div>
                         <div className="modal-body">
                             <form>
-                                <div style={{display: 'none'}}>
+                                <div style={{ display: 'none' }}>
                                     <p>Identificação:</p><p value={editData.id}>{id}</p>
                                 </div>
                                 <div className="input-group mb-3">
@@ -216,12 +198,12 @@ export default function ElementoListaCliente(props) {
                                 </div>
 
                                 {editData.telefone.map((tel, index) => (
-                                    <div className="input-group mb-3" key={tel.id}>
+                                    <div className="input-group mb-3" key={index}>
                                         <input type="text" className="form-control" placeholder="DDD" value={tel.ddd} onChange={(e) => handleTelefoneChange(index, 'ddd', e.target.value)} />
                                         <input type="text" className="form-control" placeholder="Número" value={tel.numero} onChange={(e) => handleTelefoneChange(index, 'numero', e.target.value)} />
                                     </div>
                                 ))}
-                                <div style={{display: 'none'}}>
+                                <div style={{ display: 'none' }}>
                                     <p>Identificação:</p><p value={editData.endereco.id}>{id}</p>
                                 </div>
                                 <div className="input-group mb-3">
